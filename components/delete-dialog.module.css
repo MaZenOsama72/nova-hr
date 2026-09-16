@@ -1,0 +1,68 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  background: rgba(16, 24, 40, 0.5);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fade 0.15s ease;
+}
+
+.dialog {
+  width: 100%;
+  max-width: 400px;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 28px 24px 24px;
+  text-align: center;
+  animation: pop 0.18s ease;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--danger-soft);
+  color: var(--danger);
+  margin: 0 auto 16px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.actions :global(.btn) {
+  flex: 1;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+}

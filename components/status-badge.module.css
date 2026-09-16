@@ -1,0 +1,32 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.active {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.leave {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.inactive {
+  background: #eef1f6;
+  color: #64748b;
+}
