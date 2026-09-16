@@ -11,6 +11,7 @@ import styles from "./employees-view.module.css"
 interface EmployeesViewProps {
   employees: Employee[]
   initialDepartment?: string
+  initialQuery?: string
   onAdd: () => void
   onEdit: (employee: Employee) => void
   onDelete: (employee: Employee) => void
@@ -19,11 +20,12 @@ interface EmployeesViewProps {
 export function EmployeesView({
   employees,
   initialDepartment = "All",
+  initialQuery = "",
   onAdd,
   onEdit,
   onDelete,
 }: EmployeesViewProps) {
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState(initialQuery)
   const [status, setStatus] = useState<StatusFilter>("All")
   const [department, setDepartment] = useState(initialDepartment)
 

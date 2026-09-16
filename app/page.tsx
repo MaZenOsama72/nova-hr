@@ -10,6 +10,7 @@ import { SettingsView } from "@/components/settings-view"
 import { EmployeeModal } from "@/components/employee-modal"
 import { DeleteDialog } from "@/components/delete-dialog"
 import { useEmployees } from "@/lib/use-employees"
+import { useTheme } from "@/lib/use-theme"
 import type { Employee } from "@/lib/types"
 import styles from "./page.module.css"
 
@@ -41,9 +42,13 @@ export default function Page() {
     resetEmployees,
   } = useEmployees()
 
+  const { theme, toggleTheme } = useTheme()
+
   const [view, setView] = useState<View>("dashboard")
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [initialDept, setInitialDept] = useState("All")
+  const [initialQuery, setInitialQuery] = useState("")
+  const [navToken, setNavToken] = useState(0)
 
   const [modalOpen, setModalOpen] = useState(false)
   const [editing, setEditing] = useState<Employee | null>(null)
@@ -52,7 +57,18 @@ export default function Page() {
   function navigate(next: View) {
     setView(next)
     setSidebarOpen(false)
-    if (next !== "employees") setInitialDept("All")
+    if (next !== "employees") {
+      setInitialDept("All")
+      setInitialQuery("")
+    }
+  }
+
+  function handleSearchSelect(query: string) {
+    setInitialDept("All")
+    setInitialQuery(query)
+    setNavToken((t) => t + 1)
+    setView("employees")
+    setSidebarOpen(false)
   }
 
   function openAdd() {
@@ -97,7 +113,14 @@ export default function Page() {
       />
 
       <div className={styles.main}>
-        <Header title="NOVA HR" onMenuClick={() => setSidebarOpen(true)} />
+        <Header
+          title="NOVA HR"
+          onMenuClick={() => setSidebarOpen(true)}
+          employees={employees}
+          onSearchSelect={handleSearchSelect}
+          theme={theme}
+          onToggleTheme={toggleTheme}
+        />
 
         <main className={styles.content}>
           <div className={styles.contentInner}>
@@ -115,9 +138,10 @@ export default function Page() {
 
             {view === "employees" && (
               <EmployeesView
-                key={initialDept}
+                key={navToken}
                 employees={employees}
                 initialDepartment={initialDept}
+                initialQuery={initialQuery}
                 onAdd={openAdd}
                 onEdit={openEdit}
                 onDelete={setDeleteTarget}
