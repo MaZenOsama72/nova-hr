@@ -1,33 +1,118 @@
 # nova-hr
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+A modern and fully responsive employee management dashboard built for managing employee records and basic workforce information.
 
-## Built with v0
+## Overview
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+NOVA HR is a client-side employee management dashboard that provides a simple interface for viewing, searching, filtering, adding, editing, and deleting employee records.
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_X3nN9vbH0AqQ6Up1k8PWFhBopGap)
+The application uses LocalStorage to persist employee data directly in the browser.
+
+## Features
+
+* Dashboard overview
+* Employee statistics
+* Employee management
+* Add employees
+* Edit employees
+* Delete employees
+* Delete confirmation dialog
+* Search employees
+* Filter by employee status
+* Filter by department
+* Responsive sidebar
+* Mobile navigation
+* Desktop employee table
+* Mobile employee cards
+* Form validation
+* LocalStorage data persistence
+* Responsive design
+* Accessible focus states
+
+## Technologies
+
+* Next.js
+* TypeScript
+* CSS
+* LocalStorage
+
+## Responsive Design
+
+The dashboard is designed to work across different screen sizes:
+
+* Desktop
+* Laptop
+* Tablet
+* Mobile
+* Small mobile screens
+
+The desktop version uses a sidebar and employee table, while smaller screens use a responsive navigation menu and employee cards.
+
+The layout is optimized to prevent horizontal scrolling and maintain usability across different viewport sizes.
+
+## Data Management
+
+Employee records are stored using browser LocalStorage.
+
+This allows the application to:
+
+* Persist employees after refreshing the page
+* Save newly added employees
+* Update edited employees
+* Remove deleted employees
+
+No backend or external database is required.
+
+## Project Structure
+
+```text id="j3j44q"
+nova-hr/
+├── app/
+├── components/
+├── public/
+├── styles/
+├── package.json
+└── README.md
+```
 
 ## Getting Started
 
-First, run the development server:
+Clone the repository:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```bash id="7plw2c"
+git clone https://github.com/MaZenOsama72/nova-hr.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the project:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash id="d9xw4a"
+cd nova-hr
+```
 
-## Learn More
+Install dependencies:
 
-To learn more, take a look at the following resources:
+```bash id="q5lq7z"
+npm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+Start the development server:
+
+```bash id="jv2v7y"
+npm run dev
+```
+
+Open the application:
+
+```text id="h3q1yr"
+http://localhost:3000
+```
+
+## Project Purpose
+
+This project demonstrates frontend development skills including responsive dashboard design, CRUD functionality, client-side data management, search and filtering, form handling, and responsive user interfaces.
+
+## Author
+
+**Mazen**
+
+GitHub: MaZenOsama72
